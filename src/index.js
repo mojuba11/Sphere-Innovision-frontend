@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/globals.css'; // Ensure this matches your CSS path
-import App from './App';
+import './styles/globals.css'; 
+import App from './App.jsx'; // Explicit extension for module-type builds
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
