@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 // Import your logo from the assets folder
-import Logo from '../assets/logo.jpeg'; 
+import Logo from '../assets/logo.jpg'; 
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
