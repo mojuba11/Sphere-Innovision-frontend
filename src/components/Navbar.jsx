@@ -1,16 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Cpu } from 'lucide-react';
 
-const Navbar = () => (
-  <nav className="flex justify-between items-center p-6 bg-white shadow-md sticky top-0 z-50">
-    <div className="text-2xl font-extrabold text-[#004a99]">
-      SPHERE <span className="text-[#00d2ff]">INNOVISION</span>
-    </div>
-    <div className="hidden md:flex gap-8 font-semibold text-slate-700">
-      <a href="/" className="hover:text-[#00d2ff] transition">Home</a>
-      <a href="#solutions" className="hover:text-[#00d2ff] transition">Solutions</a>
-      <a href="/dashboard" className="bg-[#004a99] text-white px-5 py-2 rounded-full hover:bg-[#00d2ff] transition">Launch Demo</a>
-    </div>
-  </nav>
-);
+const Navbar = () => {
+  return (
+    <nav className="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+      <Link to="/" className="flex items-center gap-2 text-[#004a99] font-bold text-xl">
+        <Cpu size={28} className="text-[#00d2ff]" />
+        <span>Sphere Innovision</span>
+      </Link>
+      <div className="hidden md:flex gap-8 font-medium text-slate-600">
+        <Link to="/" className="hover:text-[#004a99]">Home</Link>
+        <Link to="/dashboard" className="hover:text-[#004a99]">Dashboard</Link>
+        <Link to="/tarmarket" className="hover:text-[#004a99]">Tarmarket</Link>
+        <Link to="/transformation" className="hover:text-[#004a99]">Transformation</Link>
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
