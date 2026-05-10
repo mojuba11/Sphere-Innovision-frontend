@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
-// Import your logo from the assets folder
-import Logo from '../assets/sphere_logo_final.jpg'; 
+import { ChevronDown, Cpu, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b border-slate-200 px-6 py-3 flex justify-between items-center sticky top-0 z-50">
-      {/* Logo Section */}
-      <Link to="/" className="flex items-center gap-3">
-        <img 
-          src={Logo} 
-          alt="Sphere Innovision Logo" 
-          className="h-10 w-auto object-contain" 
-        />
-        <span className="hidden sm:block text-[#004a99] font-bold text-xl tracking-tight">
-          Sphere Innovision
+    <nav className="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+      {/* Logo Section - Using Icon and Text */}
+      <Link to="/" className="flex items-center gap-2 group">
+        <div className="bg-[#004a99] p-1.5 rounded-lg group-hover:bg-[#00d2ff] transition-colors">
+          <Cpu size={22} className="text-white" />
+        </div>
+        <span className="text-[#004a99] font-bold text-xl tracking-tighter">
+          SPHERE <span className="text-[#00d2ff]">INNOVISION</span>
         </span>
       </Link>
 
-      {/* Desktop Navigation */}
+      {/* Main Menu */}
       <div className="hidden md:flex gap-8 items-center font-medium text-slate-600">
         <Link to="/" className="hover:text-[#004a99] transition-colors">Home</Link>
         
-        {/* Services Dropdown */}
         <div 
-          className="relative group"
+          className="relative"
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
@@ -36,7 +31,7 @@ const Navbar = () => {
           </button>
 
           {isDropdownOpen && (
-            <div className="absolute left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-xl py-3 mt-0 z-50 animate-in fade-in slide-in-from-top-2">
+            <div className="absolute left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-xl py-3 mt-0 z-50">
               <Link to="/services/software" className="block px-4 py-3 hover:bg-slate-50 group">
                 <span className="font-bold block text-sm text-slate-800 group-hover:text-[#004a99]">Software Solutions</span>
                 <span className="text-xs text-slate-400">Bespoke Full-Stack & ERPs</span>
@@ -54,8 +49,7 @@ const Navbar = () => {
         </div>
 
         <Link to="/projects" className="hover:text-[#004a99] transition-colors">Projects</Link>
-        
-        <Link to="/contact" className="bg-[#004a99] text-white px-6 py-2.5 rounded-lg hover:bg-[#00d2ff] hover:text-[#004a99] transition-all font-bold shadow-md active:scale-95">
+        <Link to="/contact" className="bg-[#004a99] text-white px-6 py-2.5 rounded-lg hover:bg-[#00d2ff] hover:text-[#004a99] transition-all font-bold shadow-md">
           Contact Us
         </Link>
       </div>
