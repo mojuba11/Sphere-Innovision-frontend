@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar.jsx';
-import { Shield, Cpu, Zap, ArrowRight, ChevronLeft, ChevronRight, Globe, BarChart, Server, Award, Users, Terminal, Database, HardDrive, Activity } from 'lucide-react';
+import { Shield, Cpu, Zap, ArrowRight, ChevronLeft, ChevronRight, Globe, BarChart, Terminal, Database, HardDrive, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -44,7 +44,7 @@ const Home = () => {
         
         <Navbar />
 
-        {/* --- HERO SECTION: ZERO MARGIN --- */}
+        {/* --- HERO SECTION --- */}
         <section className="relative h-[80vh] bg-slate-900 flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/70 to-transparent z-10"></div>
@@ -76,24 +76,24 @@ const Home = () => {
           </div>
         </section>
 
-        {/* --- BOLD PARTNER TICKER: HIGH VELOCITY --- */}
-        <section className="bg-[#004a99] py-10 border-y-8 border-slate-900 overflow-hidden relative">
+        {/* --- CLEAN BOLD SCROLLING TICKER --- */}
+        <section className="bg-white py-6 border-b border-slate-100 overflow-hidden relative">
           <div className="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center">
             {[1, 2, 3].map((i) => (
               <div key={i} className="flex gap-24 items-center">
-                <span className="text-5xl font-black text-white tracking-tighter italic">BRICKS LIMITED</span>
-                <span className="text-5xl font-black text-[#00d2ff] tracking-tighter italic">VMS INTELLIGENCE</span>
-                <span className="text-5xl font-black text-white tracking-tighter italic">MARITIME SECURE</span>
-                <span className="text-5xl font-black text-[#00d2ff] tracking-tighter italic">ECOFLOW LOGISTICS</span>
-                <span className="text-5xl font-black text-white tracking-tighter italic">MURSTEN MATTONI</span>
+                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Bricks Limited</span>
+                <span className="text-4xl font-black text-[#004a99] tracking-tighter italic uppercase">VMS Intelligence</span>
+                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Maritime Secure</span>
+                <span className="text-4xl font-black text-[#004a99] tracking-tighter italic uppercase">EcoFlow Logistics</span>
+                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Mursten Mattoni</span>
               </div>
             ))}
           </div>
         </section>
 
         {/* --- DATA STRIP --- */}
-        <section className="bg-white border-b border-slate-100">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100">
+        <section className="bg-slate-50 border-b border-slate-200">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200">
             <div className="p-10 text-center md:text-left">
               <span className="text-5xl font-black text-slate-800 block">{counts.projects}+</span>
               <span className="text-[10px] text-[#004a99] uppercase font-black tracking-[0.3em] mt-2 block">Deployments</span>
@@ -176,7 +176,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* --- FINAL CTA: ZERO MARGIN --- */}
+        {/* --- FINAL CTA --- */}
         <section className="bg-[#004a99] py-24 text-center">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tighter uppercase">Ready to Engineer Your Scale?</h2>
           <Link to="/contact" className="inline-block bg-white text-[#004a99] px-16 py-6 font-black text-lg hover:bg-[#00d2ff] transition-all tracking-[0.2em] uppercase shadow-2xl">
