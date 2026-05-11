@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar.jsx';
-import { Shield, Cpu, Zap, ArrowRight, ChevronLeft, ChevronRight, Globe, BarChart, Terminal, Database, HardDrive, Activity } from 'lucide-react';
+import { Shield, Cpu, Zap, ArrowRight, ChevronLeft, ChevronRight, Globe, BarChart, Server, Award, Users, Terminal, Database, HardDrive, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -12,12 +12,14 @@ const Home = () => {
       title: "Architecting Industrial Intelligence",
       subtitle: "Full-Stack engineering meeting rugged maritime requirements.",
       accent: "Maritime Digitalization Specialist",
+      cta: "Technical Overview",
       link: "/services/software"
     },
     {
       title: "Hardened Cyber Infrastructure",
       subtitle: "Defending the gateway of maritime logistics and global trade.",
       accent: "Domain & Extension Security",
+      cta: "Security Audit",
       link: "/services/security"
     }
   ];
@@ -28,172 +30,189 @@ const Home = () => {
     }, 8000);
     const statsTimer = setInterval(() => {
       setCounts(prev => ({
-        projects: prev.projects < 62 ? prev.projects + 1 : 62,
+        projects: prev.projects < 58 ? prev.projects + 1 : 58,
         uptime: prev.uptime < 99 ? prev.uptime + 1 : 99,
-        partners: prev.partners < 18 ? prev.partners + 1 : 18,
-        codeLines: prev.codeLines < 550 ? prev.codeLines + 10 : 550
+        partners: prev.partners < 15 ? prev.partners + 1 : 15,
+        codeLines: prev.codeLines < 500 ? prev.codeLines + 10 : 500
       }));
     }, 40);
     return () => { clearInterval(timer); clearInterval(statsTimer); };
   }, [slides.length]);
 
   return (
-    <div className="bg-slate-100 min-h-screen font-sans selection:bg-[#00d2ff] selection:text-[#004a99]">
-      {/* MAIN BOXED CONTAINER */}
-      <div className="max-w-[1440px] mx-auto bg-white shadow-[0_0_50px_rgba(0,0,0,0.1)] min-h-screen overflow-hidden border-x border-slate-200">
-        
-        <Navbar />
+    <div className="bg-white min-h-screen font-sans">
+      <Navbar />
 
-        {/* --- HERO SECTION --- */}
-        <section className="relative h-[80vh] bg-slate-900 flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/70 to-transparent z-10"></div>
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+      {/* --- HERO SECTION: ZERO MARGIN --- */}
+      <section className="relative h-[85vh] bg-slate-900 flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+          <div className="w-full h-full bg-[#004a99]/20 animate-pulse"></div>
+        </div>
+
+        <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-12 bg-[#00d2ff]"></span>
+              <span className="text-[#00d2ff] uppercase tracking-[0.4em] text-xs font-black">{slides[currentSlide].accent}</span>
+            </div>
+            <h1 className="text-5xl md:text-8xl font-black text-white leading-[0.85] mb-8 tracking-tighter">
+              {slides[currentSlide].title.split(' ').map((word, i) => (
+                <span key={i} className={i === 1 ? "text-[#00d2ff] block" : "block"}>{word}</span>
+              ))}
+            </h1>
+            <p className="text-slate-400 text-xl md:text-2xl max-w-xl mb-10 font-light border-l-2 border-slate-700 pl-6">
+              {slides[currentSlide].subtitle}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to={slides[currentSlide].link} className="bg-[#004a99] text-white px-8 py-4 rounded-md font-bold hover:bg-[#00d2ff] hover:text-[#004a99] transition-all flex items-center gap-3">
+                DEPLOY SOLUTIONS <ArrowRight size={18} />
+              </Link>
+              <div className="flex items-center gap-4 px-6 py-4 bg-white/5 backdrop-blur-md rounded-md border border-white/10">
+                <Activity className="text-[#00d2ff] animate-pulse" size={20} />
+                <span className="text-white text-sm font-mono tracking-tighter">SYSTEM STATUS: OPTIMAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- DATA STRIP: HIGH INFORMATION DENSITY --- */}
+      <section className="bg-slate-50 border-y border-slate-200">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200">
+          <div className="p-8 flex flex-col items-center md:items-start">
+            <span className="text-4xl font-black text-slate-800">{counts.projects}+</span>
+            <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mt-1">Industrial Deployments</span>
+          </div>
+          <div className="p-8 flex flex-col items-center md:items-start">
+            <span className="text-4xl font-black text-[#004a99]">{counts.uptime}.9%</span>
+            <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mt-1">Operational Uptime</span>
+          </div>
+          <div className="p-8 flex flex-col items-center md:items-start">
+            <span className="text-4xl font-black text-slate-800">{counts.partners}</span>
+            <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mt-1">Strategic Alliances</span>
+          </div>
+          <div className="p-8 flex flex-col items-center md:items-start">
+            <span className="text-4xl font-black text-[#00d2ff]">{counts.codeLines}K+</span>
+            <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mt-1">Lines of Hardened Code</span>
+          </div>
+        </div>
+      </section>
+
+      {/* --- TECHNICAL CAPABILITIES: DENSE GRID --- */}
+      <section className="py-24 max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-4 sticky top-32">
+            <h2 className="text-4xl font-black text-slate-900 leading-tight mb-6 uppercase">
+              Operational <br/>Infrastructure
+            </h2>
+            <p className="text-slate-500 mb-8 leading-relaxed">
+              Sphere Innovision Ventures specializes in the intersection of hardware and high-level software, ensuring that digital transformation translates into physical efficiency for maritime and waste management sectors.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-[#004a99]">
+                <Terminal size={20} className="text-[#004a99]" />
+                <span className="font-bold text-sm text-slate-700">Full-Stack Proprietary VMS Development</span>
+              </div>
+              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-[#00d2ff]">
+                <Database size={20} className="text-[#00d2ff]" />
+                <span className="font-bold text-sm text-slate-700">Enterprise Requisition & ERP Hubs</span>
+              </div>
+              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-slate-800">
+                <HardDrive size={20} className="text-slate-800" />
+                <span className="font-bold text-sm text-slate-700">Ruggedized Intelligence Integration</span>
+              </div>
+            </div>
           </div>
 
-          <div className="relative z-20 w-full px-8 md:px-16">
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="h-px w-12 bg-[#00d2ff]"></span>
-                <span className="text-[#00d2ff] uppercase tracking-[0.4em] text-xs font-black">{slides[currentSlide].accent}</span>
-              </div>
-              <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase">
-                {slides[currentSlide].title}
-              </h1>
-              <p className="text-slate-400 text-xl md:text-2xl max-w-xl mb-10 font-light border-l-4 border-[#004a99] pl-6 italic">
-                {slides[currentSlide].subtitle}
+          <div className="lg:col-span-8 grid md:grid-cols-2 gap-4">
+            {/* Feature Cards: High Information Density */}
+            <div className="p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
+              <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">01 / SOFTWARE</h4>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-white">Custom Web & Mobile Portals</h3>
+              <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
+                Architecting high-performance backends using Node.js/Python with React frontends to manage complex logistics workflows and internal procurement.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to={slides[currentSlide].link} className="bg-[#004a99] text-white px-10 py-5 rounded-sm font-black tracking-widest hover:bg-[#00d2ff] hover:text-[#004a99] transition-all flex items-center gap-3">
-                  ACCESS SYSTEM <ArrowRight size={20} />
-                </Link>
-                <div className="flex items-center gap-4 px-6 py-5 bg-white/5 backdrop-blur-md rounded-sm border border-white/10">
-                  <Activity className="text-[#00d2ff] animate-pulse" size={20} />
-                  <span className="text-white text-xs font-mono tracking-tighter uppercase">Status: Core Operational</span>
-                </div>
-              </div>
             </div>
-          </div>
-        </section>
-
-        {/* --- CLEAN BOLD SCROLLING TICKER --- */}
-        <section className="bg-white py-6 border-b border-slate-100 overflow-hidden relative">
-          <div className="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex gap-24 items-center">
-                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Bricks Limited</span>
-                <span className="text-4xl font-black text-[#004a99] tracking-tighter italic uppercase">VMS Intelligence</span>
-                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Maritime Secure</span>
-                <span className="text-4xl font-black text-[#004a99] tracking-tighter italic uppercase">EcoFlow Logistics</span>
-                <span className="text-4xl font-black text-slate-900 tracking-tighter italic uppercase">Mursten Mattoni</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* --- DATA STRIP --- */}
-        <section className="bg-slate-50 border-b border-slate-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200">
-            <div className="p-10 text-center md:text-left">
-              <span className="text-5xl font-black text-slate-800 block">{counts.projects}+</span>
-              <span className="text-[10px] text-[#004a99] uppercase font-black tracking-[0.3em] mt-2 block">Deployments</span>
-            </div>
-            <div className="p-10 text-center md:text-left">
-              <span className="text-5xl font-black text-[#004a99] block">{counts.uptime}.9%</span>
-              <span className="text-[10px] text-slate-400 uppercase font-black tracking-[0.3em] mt-2 block">System Uptime</span>
-            </div>
-            <div className="p-10 text-center md:text-left">
-              <span className="text-5xl font-black text-slate-800 block">{counts.partners}</span>
-              <span className="text-[10px] text-[#004a99] uppercase font-black tracking-[0.3em] mt-2 block">Global Partners</span>
-            </div>
-            <div className="p-10 text-center md:text-left">
-              <span className="text-5xl font-black text-[#00d2ff] block">{counts.codeLines}K</span>
-              <span className="text-[10px] text-slate-400 uppercase font-black tracking-[0.3em] mt-2 block">Code Integrity</span>
-            </div>
-          </div>
-        </section>
-
-        {/* --- TECHNICAL CAPABILITIES --- */}
-        <section className="py-24 px-8 md:px-16">
-          <div className="grid lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-5">
-              <h2 className="text-5xl font-black text-slate-900 leading-none mb-8 uppercase tracking-tighter">
-                Operational <br/><span className="text-[#004a99]">Infrastructure</span>
-              </h2>
-              <p className="text-slate-500 text-lg mb-10 leading-relaxed border-l-2 border-slate-200 pl-6">
-                Specializing in the intersection of industrial hardware and high-level software for the maritime and logistics sectors.
+            <div className="p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
+              <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">02 / SECURITY</h4>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-white">Cyber-Infrastructure Hardening</h3>
+              <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
+                Specialized in domain-based attack prevention and secure gateway protocols to protect maritime intelligence from evolving global threats.
               </p>
-              <div className="space-y-3">
-                {["Full-Stack VMS Development", "Enterprise Requisition Hubs", "Ruggedized Intelligence Integration"].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-5 bg-slate-50 border border-slate-100 font-bold text-slate-700 uppercase text-xs tracking-widest">
-                    <div className="w-2 h-2 bg-[#004a99]"></div> {item}
-                  </div>
-                ))}
-              </div>
             </div>
+            <div className="p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
+              <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">03 / LOGISTICS</h4>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-white">Waste & Asset Tracking</h3>
+              <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
+                Digitizing physical asset movement through automated requisition systems and waste management portals for large-scale industrial firms.
+              </p>
+            </div>
+            <div className="p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
+              <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">04 / HARDWARE</h4>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-white">Intelligence Hardware Tests</h3>
+              <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
+                Field-testing and certifying bodycams, VMS nodes, and communication devices for performance under high-stress industrial environments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="lg:col-span-7 grid md:grid-cols-2 gap-4">
-              <div className="p-10 border border-slate-100 bg-white hover:bg-slate-900 group transition-all duration-500">
-                <Cpu className="text-[#004a99] group-hover:text-[#00d2ff] mb-6" size={40} />
-                <h3 className="text-xl font-black mb-4 group-hover:text-white uppercase">Software</h3>
-                <p className="text-slate-500 group-hover:text-slate-400 text-sm leading-relaxed">Bespoke backends managing complex logistics and procurement workflows.</p>
+      {/* --- CORPORATE VISION BLOCK --- */}
+      <section className="bg-slate-900 py-24 px-6 md:px-12 text-white">
+        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-black leading-none mb-8">
+              Securing Innovation <br/>With a <span className="text-[#00d2ff]">Vision.</span>
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-10">
+              <div>
+                <h5 className="font-bold text-[#00d2ff] mb-2 uppercase text-xs tracking-widest">Our Mission</h5>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  To empower industrial leaders with digital tools that provide 100% visibility, unwavering security, and seamless scalability.
+                </p>
               </div>
-              <div className="p-10 border border-slate-100 bg-white hover:bg-slate-900 group transition-all duration-500">
-                <Shield className="text-[#004a99] group-hover:text-[#00d2ff] mb-6" size={40} />
-                <h3 className="text-xl font-black mb-4 group-hover:text-white uppercase">Security</h3>
-                <p className="text-slate-500 group-hover:text-slate-400 text-sm leading-relaxed">Hardening maritime intelligence against evolving global cyber threats.</p>
+              <div>
+                <h5 className="font-bold text-[#00d2ff] mb-2 uppercase text-xs tracking-widest">Our Edge</h5>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Unlike generic tech firms, we understand the grit of maritime operations and the complexity of large-scale logistics.
+                </p>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* --- CORPORATE VISION --- */}
-        <section className="bg-slate-900 py-24 px-8 md:px-16 text-white relative">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#004a99] to-[#00d2ff]"></div>
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase tracking-tighter">
-                Securing <br/>The Digital <br/><span className="text-[#00d2ff]">Frontier.</span>
-              </h2>
-              <div className="flex gap-10">
-                <div className="max-w-[200px]">
-                  <h5 className="font-black text-[#00d2ff] mb-4 uppercase text-[10px] tracking-[0.3em]">The Mission</h5>
-                  <p className="text-slate-400 text-xs leading-loose uppercase">Empowering leaders with 100% operational visibility.</p>
-                </div>
-                <div className="max-w-[200px]">
-                  <h5 className="font-black text-[#00d2ff] mb-4 uppercase text-[10px] tracking-[0.3em]">The Edge</h5>
-                  <p className="text-slate-400 text-xs leading-loose uppercase">Grit-driven tech built for the complexity of global trade.</p>
-                </div>
-              </div>
-            </div>
-            <div className="aspect-video bg-[#004a99]/10 border border-white/5 flex items-center justify-center relative overflow-hidden">
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] opacity-20 grayscale"></div>
-               <Globe className="text-[#00d2ff] relative z-10 animate-spin-slow opacity-50" size={120} />
-               <div className="absolute bottom-6 right-6 text-right">
-                  <p className="text-2xl font-black italic tracking-tighter uppercase">Lagos | Global</p>
+          <div className="relative">
+            <div className="aspect-video bg-[#004a99]/20 border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden">
+               {/* This represents a high-tech visual or interactive map */}
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] opacity-30 bg-cover"></div>
+               <div className="relative z-10 text-center px-10">
+                  <Globe className="text-[#00d2ff] mx-auto mb-6 animate-spin-slow" size={60} />
+                  <p className="text-2xl font-bold italic">Lagos Hub | Global Operations</p>
                </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* --- FINAL CTA --- */}
-        <section className="bg-[#004a99] py-24 text-center">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tighter uppercase">Ready to Engineer Your Scale?</h2>
-          <Link to="/contact" className="inline-block bg-white text-[#004a99] px-16 py-6 font-black text-lg hover:bg-[#00d2ff] transition-all tracking-[0.2em] uppercase shadow-2xl">
-            Request Strategy Session
-          </Link>
-        </section>
+      {/* --- PARTNERS MARQUEE: DENSE --- */}
+      <section className="py-16 bg-white border-b border-slate-100 overflow-hidden">
+        <div className="flex gap-20 animate-infinite-scroll whitespace-nowrap">
+          {["Bricks Mursten Mattoni", "VMS Intelligence", "Maritime Secure", "EcoFlow Logistics", "Bricks Mursten Mattoni", "VMS Intelligence"].map((p, i) => (
+            <span key={i} className="text-3xl font-black text-slate-100 uppercase tracking-tighter hover:text-[#004a99] transition-colors cursor-default">
+              {p}
+            </span>
+          ))}
+        </div>
+      </section>
 
-        {/* --- MINIMALIST FOOTER --- */}
-        <footer className="py-12 px-16 bg-white border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <span className="font-black text-xl text-[#004a99] uppercase tracking-tighter italic">
-            Sphere <span className="text-[#00d2ff]">Innovision</span>
-          </span>
-          <span className="text-slate-400 text-[10px] font-black tracking-[0.4em] uppercase">
-            © 2026 Ventures | Engineering Scalability
-          </span>
-        </footer>
-      </div>
+      {/* --- CTA: ZERO DEAD SPACE --- */}
+      <section className="bg-[#004a99] py-20 px-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-black text-white mb-8">READY TO ENGINEER YOUR SCALE?</h2>
+        <Link to="/contact" className="inline-block bg-[#00d2ff] text-[#004a99] px-12 py-5 rounded-md font-black text-lg hover:bg-white transition-all">
+          BOOK A STRATEGY SESSION
+        </Link>
+      </section>
     </div>
   );
 };
