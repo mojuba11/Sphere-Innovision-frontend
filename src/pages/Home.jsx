@@ -103,7 +103,7 @@ const Home = () => {
               Strategic <br className="hidden md:block"/>Methodology
             </h2>
             <p className="text-slate-500 mb-8 leading-relaxed">
-              We combine the agility of modern software development with the strategic depth of digital transformation[cite: 5].
+              We combine the agility of modern software development with the strategic depth of digital transformation.
             </p>
             <div className="space-y-4">
               {[
@@ -124,28 +124,28 @@ const Home = () => {
               <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">SOFTWARE SOLUTIONS</h4>
               <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-white">Enterprise Ecosystems</h3>
               <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
-                Bespoke management portals and ERP systems designed to solve complex operational bottlenecks[cite: 11, 12].
+                Bespoke management portals and ERP systems designed to solve complex operational bottlenecks.
               </p>
             </div>
             <div className="p-8 md:p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
               <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">SECURITY VIA TECH</h4>
               <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-white">Intelligent Monitoring</h3>
               <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
-                Proprietary Bodycam and VMS ecosystems providing real-time transparency for field operations[cite: 20, 32].
+                Proprietary Bodycam and VMS ecosystems providing real-time transparency for field operations.
               </p>
             </div>
             <div className="p-8 md:p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
               <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">DIGITAL TRANSFORMATION</h4>
               <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-white">Process Re-engineering</h3>
               <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
-                Migrating legacy systems to the cloud and automating manual workflows[cite: 15, 18].
+                Migrating legacy systems to the cloud and automating manual workflows.
               </p>
             </div>
             <div className="p-8 md:p-10 border border-slate-100 bg-white hover:bg-[#004a99] group transition-all duration-500">
               <h4 className="text-xs font-black text-[#00d2ff] mb-4 tracking-[0.2em]">HARDENED SYSTEMS</h4>
               <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-white">Cyber Hardening</h3>
               <p className="text-slate-500 group-hover:text-slate-200 text-sm leading-loose">
-                Integrating hardware with proactive threat mitigation and domain hardening protocols[cite: 22, 23].
+                Integrating hardware with proactive threat mitigation and domain hardening protocols.
               </p>
             </div>
           </div>
@@ -163,13 +163,13 @@ const Home = () => {
               <div>
                 <h5 className="font-bold text-[#00d2ff] mb-2 uppercase text-[10px] tracking-widest underline decoration-2 underline-offset-8">Productization</h5>
                 <p className="text-slate-400 text-sm leading-relaxed mt-4">
-                  Turning custom-built client solutions into scalable, globally competitive products[cite: 37].
+                  Turning custom-built client solutions into scalable, globally competitive products.
                 </p>
               </div>
               <div>
                 <h5 className="font-bold text-[#00d2ff] mb-2 uppercase text-[10px] tracking-widest underline decoration-2 underline-offset-8">Collaboration</h5>
                 <p className="text-slate-400 text-sm leading-relaxed mt-4">
-                  Partnering with industry leaders to drive the wave of industrial AI and automation[cite: 39].
+                  Partnering with industry leaders to drive the wave of industrial AI and automation.
                 </p>
               </div>
             </div>
@@ -178,7 +178,7 @@ const Home = () => {
              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] opacity-30 bg-cover"></div>
              <div className="relative z-10 text-center px-6">
                 <Globe className="text-[#00d2ff] mx-auto mb-4 animate-spin-slow" size={40} />
-                <p className="text-lg md:text-2xl font-bold italic tracking-tighter">Solving Local Challenges globally [cite: 38]</p>
+                <p className="text-lg md:text-2xl font-bold italic tracking-tighter">Solving Local Challenges globally</p>
              </div>
           </div>
         </div>
