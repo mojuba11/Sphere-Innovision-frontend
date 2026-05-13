@@ -58,7 +58,7 @@ const Navbar = () => {
 
           <Link to="/projects" className="hover:text-[#004a99] transition-colors">Projects</Link>
           <Link to="/contact" className="bg-[#004a99] text-white px-6 py-3 rounded text-[10px] hover:bg-[#00d2ff] hover:text-[#004a99] transition-all font-black shadow-lg shadow-[#004a99]/20">
-            INITIALIZE
+            Contact Us
           </Link>
         </div>
 

@@ -16,7 +16,7 @@ const Contact = () => {
             <span className="text-[#00d2ff] uppercase tracking-[0.4em] text-xs font-black">Get In Touch</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 tracking-tighter uppercase">
-            Initialize <br /> <span className="text-[#004a99]">Discovery.</span>
+            Talk <br /> <span className="text-[#004a99]">to us </span>
           </h1>
           <p className="text-slate-400 text-xl max-w-2xl font-light leading-relaxed border-l-2 border-slate-700 pl-6">
             Connect with our specialist team to engineer your digital scalability and operational transparency.
@@ -34,7 +34,7 @@ const Contact = () => {
               <div className="w-12 h-12 bg-[#004a99]/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-[#004a99] transition-colors">
                 <Mail className="text-[#004a99] group-hover:text-white" size={24} />
               </div>
-              <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">Email Infrastructure</h3>
+              <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">Email</h3>
               <a href="mailto:info@sphereinnovision.com.ng" className="text-slate-600 font-medium hover:text-[#004a99] transition-colors">
                 info@sphereinnovision.com.ng
               </a>
@@ -69,7 +69,7 @@ const Contact = () => {
                 <Globe size={20} />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em]">Global Presence</span>
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-6">Lagos Maritime <br />Logistics Hub</h3>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-6">Sphere <br />Innovision</h3>
               <div className="space-y-4 border-t border-white/10 pt-8">
                 <div className="flex justify-between items-center">
                   <span className="text-slate-400 text-xs uppercase tracking-widest">Availability</span>
